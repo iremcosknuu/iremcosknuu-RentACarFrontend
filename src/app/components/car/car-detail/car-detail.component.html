@@ -1,0 +1,10 @@
+<p-card header="{{car?.brandName}}" subheader="{{car?.colorName}}" [style]="{width: '1000 px'}" styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+      <img alt="Card" src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mike-170811.jpg&fm=jpg">
+  </ng-template>
+  <p>{{car?.description}}</p>
+  <ng-template pTemplate="footer">
+      <p-button label="Kirala" icon="pi pi-check"></p-button>
+      <p-button label="Geri Dön" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+  </ng-template>
+</p-card>

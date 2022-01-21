@@ -1,0 +1,63 @@
+<div>
+  <form style="margin-top: 15px; margin-left: 40px;" [formGroup]="carAddForm">
+    <div style="margin-bottom: 2rem;">
+      <span class="p-float-label" >
+        <input type="text" id="inputtext" pInputText formControlName="name" > 
+        <label for="inputtext">Araba Adı</label>
+      </span>
+    </div>
+    <div class="field col-12 md:col-4" style="margin-bottom: 2rem;">
+      <h5>Marka</h5>
+      <span class="p-float-label">
+          <p-dropdown [options]="brands" inputId="dropdown" optionLabel="name" optionValue="id" formControlName="brandName"></p-dropdown>
+      </span>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <span class="p-float-label" >
+      <input type="text" id="inputtext" pInputText formControlName="dailyPrice" > 
+      <label for="inputtext">Model</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-4" style="margin-bottom: 2rem;">
+    <span class="p-float-label">
+      <h5>Renk</h5>
+      <p-dropdown [options]="colors" inputId="dropdown" optionLabel="name" optionValue="id" formControlName="colorName"></p-dropdown>
+    </span>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <span class="p-float-label" >
+      <input type="text" id="inputtext" pInputText formControlName="dailyPrice" > 
+      <label for="inputtext">Günlük Ücret</label>
+    </span>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <span class="p-float-label" >
+      <input type="text" id="inputtext" pInputText formControlName="kilometer" > 
+      <label for="inputtext">Kilometre</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-4" style="margin-bottom: 2rem;">
+    <span class="p-float-label">
+      <h5>Segment</h5>
+      <p-dropdown [options]="segments" inputId="dropdown" optionLabel="name" optionValue="id" formControlName="segmentName"></p-dropdown>
+    </span>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <span class="p-float-label">
+      <textarea id="float-input" rows="5" cols="30" pInputTextarea formControlName="description"></textarea>
+      <label for="float-input">Açıklama</label>
+    </span>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <span class="p-float-label" >
+      <input type="text" id="inputtext" pInputText formControlName="minAge" > 
+      <label for="inputtext">Minimum Yaş</label>
+    </span>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <span class="p-float-label" >
+      <p-button label="Araba Ekle" routerLink="car-carAdd" ></p-button>
+    </span>  
+  </div>
+</form>
+</div>

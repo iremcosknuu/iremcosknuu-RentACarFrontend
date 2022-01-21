@@ -1,0 +1,39 @@
+<div class="content-section implementation">
+    <div class="card" >
+        <p-dataView #dv [value]="cars" [paginator]="true" [rows]="4" filterBy="name"
+            layout="grid">
+            <ng-template pTemplate="header">
+                <div class="flex flex-column md:flex-row md:justify-content-between">
+                    <p-dropdown [options]="cars" [(ngModel)]="cars" placeholder="Sort By Price" styleClass="mb-2 md:mb-0"></p-dropdown>
+                    <span class="p-input-icon-left mb-2 md:mb-0">
+                        <i class="pi pi-search"></i>
+                        <input type="search" pInputText placeholder="Search by Name" style="margin-right: 10px;">
+                        <p-button label="Araba Ekle" routerLink="car-carAdd" ></p-button>
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template let-car pTemplate="gridItem">
+                <div class="col-9 md:col-4">
+                    <div class="product-grid-item card">
+                        <div class="product-grid-item-top">
+                            <div>
+                                <i class="pi pi-tag product-category-icon"></i>
+                                <span class="product-category">{{car.modelYear}}</span>
+                            </div>
+                        </div>
+                        <div class="product-grid-item-content">
+                            <img width="100px" height="250px" src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mike-170811.jpg&fm=jpg">
+                             <div class="product-name">{{car.description}}</div>
+                            <div class="product-description">{{car.description}}</div>
+                            <p-rating [readonly]="true" [cancel]="false"></p-rating>
+                        </div>
+                        <div class="product-grid-item-bottom">
+                            <span class="product-price">${{car.dailyPrice}}</span>
+                            <p-button icon="pi pi-shopping-cart" routerLink="/car-detail/{{car.id}}"></p-button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
+</div>
