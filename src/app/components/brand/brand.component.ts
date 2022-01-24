@@ -13,7 +13,7 @@ export class BrandComponent implements OnInit {
 
   brands:BrandListModel[]=[]
   dataLoaded: boolean = false
-  selectedBrand: BrandListModel;
+  selectedBrand: BrandListModel
 
   ngOnInit(): void {
      this.getBrands()

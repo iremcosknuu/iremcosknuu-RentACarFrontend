@@ -1,17 +1,19 @@
 <app-nav></app-nav>
-<div class="container" style="margin-top: 15px;">
+<div class="container" style="margin-top: 15px;" >
     <div class="row" >
       <div class="col-md-3">
         <div style="margin-block: 15px;">
           <app-brand></app-brand>
         </div>
-        <div>
+        <div style="margin-block: 15px;">
           <app-color></app-color>
+        </div>
+        <div style="margin-block: 15px;">
+          <app-fuelType></app-fuelType>
         </div>
       </div>
       <div class="col-md-9">
-        <div class="row">
-          <router-outlet></router-outlet> 
-        </div>
-      </div> 
+        <router-outlet></router-outlet>
+      </div>
     </div>
+</div>

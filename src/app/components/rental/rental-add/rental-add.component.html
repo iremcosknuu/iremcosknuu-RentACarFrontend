@@ -1,0 +1,46 @@
+<h1>Kiralama</h1>
+<div class="card-footer">
+    <form [formGroup]="rentalAddForm" (submit)="add()" style="width: 25rem;">
+        <div class="grid p-fluid">
+            <div class="field col-12 md:col-2;" style="margin-bottom: 2rem;">
+                <label for="rentMile">Başlangıç Kilometre</label>
+                <p-inputNumber formControlName="rentedKilometer" inputId="rentedKilometer" suffix=" km" >
+                </p-inputNumber>
+            </div>
+
+            <div class="field col-12 md:col-2" style="margin-bottom: 2rem;">
+                <label for="returnMile">Teslim Edilen Kilometre</label>
+                <p-inputNumber formControlName="returnedKilometer" inputId="returnedKilometer" suffix=" km">
+                </p-inputNumber>
+            </div>
+        </div>
+
+        <div class="grid p-fluid" >
+            <div class="field col-12 md:col-2" style="margin-bottom: 2rem;" >
+                <label for="rentDate">Kiralama Tarihi</label>
+                <p-calendar [showButtonBar]="true" formControlName="rentDate" inputId="rentDate"></p-calendar>
+            </div>
+
+            <div class="field col-12 md:col-2" style="margin-bottom: 2rem;">
+                <label for="returnDate">Dönüş Tarihi</label>
+                <p-calendar [showButtonBar]="true" formControlName="returnDate" inputId="returnDate"></p-calendar>
+            </div>
+        </div>
+
+        <div class="grid p-fluid">
+            <div class="field col-12 md:col-2" style="margin-bottom: 2rem;">
+                <label for="buttonbar">Kiralanan Şehir</label>
+                <p-dropdown [options]="cities" placeholder="Şehir Seçiniz" formControlName="pickUpCityId" optionValue="id" optionLabel="name" [showClear]="true"></p-dropdown>
+            </div>
+
+            <div class="field col-12 md:col-2" style="margin-bottom: 2rem;">
+                <label for="buttonbar">Teslim Edilen Şehir</label>
+                <p-dropdown [options]="cities" placeholder="Şehir Seçiniz" formControlName="returnCityId" optionValue="id" optionLabel="name" [showClear]="true"></p-dropdown>
+            </div>
+        </div>
+        <div style="margin-bottom: 2rem;">
+            <p-button label="Kirala" type="submit"></p-button>
+            <p-button label="Geri Dön" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}" routerLink=""></p-button>
+        </div>   
+</form>
+</div>

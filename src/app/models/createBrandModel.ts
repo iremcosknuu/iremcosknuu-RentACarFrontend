@@ -1,3 +1,3 @@
-export interface CrateResponseModel{
+export interface CrateBrandModel{
     name:String
 }

@@ -1,4 +1,5 @@
 export interface CreateCarModel{
+    name:String
     brandId:number
     colorId:number
     dailyPrice:number
@@ -8,4 +9,6 @@ export interface CreateCarModel{
     descripton:string
     minAge:number
     segmentId:number
+    fuelTypeId:number
+    imageUrl:number
 }

@@ -1,5 +1,5 @@
+import { CreateCarModel } from './../models/createCarModel';
 import { ResponseModel } from './../models/responseModel';
-import { CrateResponseModel } from './../models/createBrandModel';
 import { SingleResponseModel } from './../models/singleResponseModel';
 import { CarListModel } from './../models/carListModel';
 import { ListResponseModel } from './../models/listResponseModel';
@@ -32,7 +32,11 @@ getByBrandId(brandId:number):Observable<ListResponseModel<CarListModel>>{
   return this.httpClient.get<ListResponseModel<CarListModel>>(this.apiUrl+"findByBrandId/"+brandId)
 }
 
-add(car: CrateResponseModel){
+getByFuelTypeId(fuelTypeId:number):Observable<ListResponseModel<CarListModel>>{
+  return this.httpClient.get<ListResponseModel<CarListModel>>(this.apiUrl+"findByFuelTypeId/"+fuelTypeId)
+}
+
+add(car: CreateCarModel):Observable<ResponseModel>{
   return this.httpClient.post<ResponseModel>(this.apiUrl+"add",car)
 }
 

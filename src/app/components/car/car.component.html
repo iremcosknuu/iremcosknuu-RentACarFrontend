@@ -1,7 +1,7 @@
+<p-tabMenu [model]="items"></p-tabMenu>
 <div class="content-section implementation">
-    <div class="card" >
-        <p-dataView #dv [value]="cars" [paginator]="true" [rows]="4" filterBy="name"
-            layout="grid">
+    <div class="card" > 
+        <p-dataView #dv [value]="cars" [paginator]="true" [rows]="4" filterBy="name" layout="grid">
             <ng-template pTemplate="header">
                 <div class="flex flex-column md:flex-row md:justify-content-between">
                     <p-dropdown [options]="cars" [(ngModel)]="cars" placeholder="Sort By Price" styleClass="mb-2 md:mb-0"></p-dropdown>
@@ -17,19 +17,18 @@
                     <div class="product-grid-item card">
                         <div class="product-grid-item-top">
                             <div>
-                                <i class="pi pi-tag product-category-icon"></i>
+                                <i class="pi pi-tag prduct-category-icono"></i>
                                 <span class="product-category">{{car.modelYear}}</span>
                             </div>
                         </div>
                         <div class="product-grid-item-content">
-                            <img width="100px" height="250px" src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mike-170811.jpg&fm=jpg">
-                             <div class="product-name">{{car.description}}</div>
-                            <div class="product-description">{{car.description}}</div>
-                            <p-rating [readonly]="true" [cancel]="false"></p-rating>
+                            <img width="100px" height="250px" src="{{car.imageUrl}}">
+                             <div class="product-name">{{car.name}}</div>
+                            <div class="product-description">{{car.brandName}}</div>
                         </div>
                         <div class="product-grid-item-bottom">
-                            <span class="product-price">${{car.dailyPrice}}</span>
-                            <p-button icon="pi pi-shopping-cart" routerLink="/car-detail/{{car.id}}"></p-button>
+                            <span class="product-price">{{car.dailyPrice}} TL</span>
+                            <p-button icon="pi pi-bars" routerLink="car-detail/{{car.id}}"></p-button>
                         </div>
                     </div>
                 </div>

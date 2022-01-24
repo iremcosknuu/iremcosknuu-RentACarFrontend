@@ -1,11 +1,8 @@
-import { ColorListModel } from './../../models/colorListModel';
-import { ColorService } from './../../services/color.service';
-import { BrandService } from './../../services/brand.service';
+import { MenuItem } from 'primeng/api';
 import { CarListModel } from './../../models/carListModel';
 import { CarService } from './../../services/car.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BrandListModel } from 'src/app/models/brandListModel';
 
 @Component({
   selector: 'app-car',
@@ -16,22 +13,30 @@ export class CarComponent implements OnInit {
   
   cars:CarListModel[]=[]
   dataLoaded:boolean = false
+  items: MenuItem[]
 
   constructor(private carService: CarService,private activatedRoute:ActivatedRoute) { }
-
- 
 
   ngOnInit():void {
     this.activatedRoute.params.subscribe((params) => {
       if (params['colorId']) {
         this.getCarsByColorId(params['colorId'])
       }
-      if (params['brandId']) {
+      else if (params['brandId']) {
         this.getCarsByBrandId(params['brandId'])
-      } else {
+      }
+      else if(params['fuelTypeId']){
+        this.getCarsByFuelTypeId(params['fuelTypeId'])
+      }
+      else {
         this.getCars()
       }
     })
+
+    this.items = [
+      {label: 'Araçlar', icon: ' pi pi-car',routerLink: ['']},
+      {label: 'Kiralananlar', icon: ' pi pi-check-square' ,routerLink: ['rentals']}   
+    ]
   }
 
   getCars(){
@@ -39,7 +44,6 @@ export class CarComponent implements OnInit {
       this.dataLoaded = false
       this.cars = response.data
       this.dataLoaded = true
-      console.log(this.cars);
       
     })
   }
@@ -49,7 +53,6 @@ export class CarComponent implements OnInit {
       this.dataLoaded = false
       this.cars = response.data
       this.dataLoaded = true
-      console.log(this.cars)
     })
   }
 
@@ -58,7 +61,14 @@ export class CarComponent implements OnInit {
       this.dataLoaded = false
       this.cars = response.data
       this.dataLoaded = true
-      console.log(this.cars)
+    })
+  }
+
+  getCarsByFuelTypeId(fuelTypeId:number){
+    this.carService.getByFuelTypeId(fuelTypeId).subscribe((response)=>{
+      this.dataLoaded = false
+      this.cars = response.data
+      this.dataLoaded = true
     })
   }
 

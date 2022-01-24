@@ -1,10 +1,36 @@
-<p-card header="{{car?.brandName}}" subheader="{{car?.colorName}}" [style]="{width: '1000 px'}" styleClass="p-card-shadow">
+<p-card header="{{car?.brandName}}" subheader="{{car?.name}}" [style]="{width: '1000 px'}" styleClass="p-card-shadow">
   <ng-template pTemplate="header">
-      <img alt="Card" src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mike-170811.jpg&fm=jpg">
+      <img alt="Card" src="{{car?.imageUrl}}">
   </ng-template>
+  <!-- <p-table>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body">
+        <tr>
+            <td>{{car?.modelYear}}</td>
+            <td>{{car?.modelYear}}</td>
+            <td>{{car?.modelYear}}</td>
+            <td>{{car?.modelYear}}</td>
+        </tr>
+    </ng-template>
+</p-table> -->
+  <p>{{car?.modelYear}}</p>
   <p>{{car?.description}}</p>
+  <p>{{car?.fuelTypeName}}</p>
+  <p>{{car?.colorName}}</p>
+  <p>{{car?.findexScore}}</p>
+  <p>{{car?.kilometer}}</p>
+  <p>{{car?.minAge}}</p> 
   <ng-template pTemplate="footer">
-      <p-button label="Kirala" icon="pi pi-check"></p-button>
-      <p-button label="Geri Dön" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+      <p-button label="Kirala" icon="pi pi-check" routerLink="rental-rentalAdd"></p-button>
+      <p-button label="Geri Dön" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}" routerLink=""></p-button>
   </ng-template>
 </p-card>
+
+

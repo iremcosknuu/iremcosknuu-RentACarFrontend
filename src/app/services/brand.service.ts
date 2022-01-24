@@ -1,4 +1,4 @@
-import { CrateResponseModel } from './../models/createBrandModel';
+import { CrateBrandModel } from './../models/createBrandModel';
 import { ResponseModel } from './../models/responseModel';
 import { BrandListModel } from './../models/brandListModel';
 import { ListResponseModel } from './../models/listResponseModel';
@@ -17,7 +17,7 @@ export class BrandService {
     return this.httpClient.get<ListResponseModel<BrandListModel>>(this.apiUrl+"getall")
   }
 
-  add(brand: CrateResponseModel):Observable<ResponseModel>{
+  add(brand: CrateBrandModel):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"add",brand)
   }
 
