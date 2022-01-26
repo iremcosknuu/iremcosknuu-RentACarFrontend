@@ -10,7 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CarDetailComponent implements OnInit {
 
-  car:CarListModel
+  car:CarListModel | any;
   dataLoaded = false;
   constructor(private carService:CarService, private activatedRoute:ActivatedRoute) { }
 

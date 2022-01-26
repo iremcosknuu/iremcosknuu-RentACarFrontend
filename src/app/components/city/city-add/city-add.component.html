@@ -1,0 +1,23 @@
+<h2 style="margin-bottom: 15px; text-align: center;">Şehirler</h2>
+<div class="card-footer" >
+    <div style="margin-block: 8px;">
+        <p-listbox (click)="getCityId(selectedCity!)" [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-listbox>
+    
+    <br>
+    <form [formGroup]="cityAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
+        <div style="scroll-margin-top: 15px;">
+            <span class="p-float-label">
+                <input id="float-input" type="text" placeholder="{{selectedCity?.name}}" pInputText formControlName="name" > 
+            </span>
+        </div>
+        <br>
+        <div style="scroll-margin-top: 15px;">
+            <span class="p-buttonset">
+                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check"></button>
+                <app-city-delete [selectedCity]="selectedCity"></app-city-delete>
+                <app-city-update [selectedCity]="selectedCity"></app-city-update>  
+            </span>
+        </div>
+    </form>   
+    </div> 
+</div>

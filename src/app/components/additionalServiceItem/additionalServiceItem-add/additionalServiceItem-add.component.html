@@ -1,0 +1,22 @@
+<h2 style="margin-bottom: 15px; text-align: center;">Ek Servisler</h2>
+<div class="card-footer" >
+    <div style="margin-block: 8px;">
+        <p-listbox (click)="getadditionalServiceItemId(selectedAdditionalServiceItem!)" [options]="additionalServiceItems" [(ngModel)]="selectedAdditionalServiceItem" optionLabel="name"></p-listbox>
+    
+    <br>
+    <form [formGroup]="additionalServiceItemAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
+        <div style="scroll-margin-top: 15px;">
+            <span class="p-float-label">
+                <input id="float-input" type="text" placeholder="{{selectedAdditionalServiceItem?.name}}" pInputText formControlName="name" > 
+            </span>
+        </div>
+        <br>
+        <div style="scroll-margin-top: 15px;">
+            <span class="p-buttonset">
+                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check"></button>
+                <app-additionalServiceItem-delete [selectedAdditionalServiceItem]="selectedAdditionalServiceItem"></app-additionalServiceItem-delete>
+            </span>
+        </div>
+    </form>   
+    </div> 
+</div>

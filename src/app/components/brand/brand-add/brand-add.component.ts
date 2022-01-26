@@ -13,12 +13,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class BrandAddComponent implements OnInit {
 
+  brands:BrandListModel[]=[]
   brand:BrandListModel
   brandAddForm:FormGroup
+  selectedBrand: BrandListModel
+  dataLoaded:boolean = false
 
-  constructor(private brandService:BrandService,private formBuilder:FormBuilder,private toastrService:ToastrService,private activatedRoute:ActivatedRoute) { }
+  constructor(
+    private brandService:BrandService,
+    private formBuilder:FormBuilder,
+    private toastrService:ToastrService,
+    private activatedRoute:ActivatedRoute
+    ) { }
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.getBrands()
     this.createBrandAddForm()
   }
 
@@ -27,6 +36,14 @@ export class BrandAddComponent implements OnInit {
       name:["", Validators.required]
     })
   }
+
+  getBrands(){
+    this.brandService.getBrands().subscribe(response=>{
+    this.dataLoaded = false
+    this.brands = response.data
+    this.dataLoaded = true
+  })
+}
 
   add(){
     if (this.brandAddForm.valid) {
@@ -39,7 +56,11 @@ export class BrandAddComponent implements OnInit {
           this.toastrService.error(response.message, "Error !")
         }
       })
+    }
   }
-}
 
+  getBrandId(brand:BrandListModel){
+    this.selectedBrand=brand
+  }
+  
 }

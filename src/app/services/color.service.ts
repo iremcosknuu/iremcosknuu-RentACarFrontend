@@ -1,3 +1,4 @@
+import { UpdateBrandModel } from './../models/updateBrandModel';
 import { ResponseModel } from './../models/responseModel';
 import { ColorListModel } from '../models/colorListModel';
 import { ListResponseModel } from './../models/listResponseModel';
@@ -21,6 +22,14 @@ getColors():Observable<ListResponseModel<ColorListModel>>{
 
 add(color: CreateColorModel):Observable<ResponseModel>{
   return this.httpClinet.post<ResponseModel>(this.apiUrl+"add",color)
+}
+
+delete(id:number):Observable<ResponseModel>{
+  return this.httpClinet.delete<ResponseModel>(this.apiUrl+"delete/"+id)
+}
+
+update(color:UpdateBrandModel):Observable<ResponseModel>{
+  return this.httpClinet.put<ResponseModel>(this.apiUrl+"update",color)
 }
 
 }

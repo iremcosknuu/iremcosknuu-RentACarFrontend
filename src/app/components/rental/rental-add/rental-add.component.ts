@@ -1,7 +1,8 @@
+import { RentalListModel } from './../../../models/rentalListModel';
 import { CityService } from './../../../services/city.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RentalService } from './../../../services/rental.service';
 import { Component, OnInit } from '@angular/core';
 import { CityListModel } from 'src/app/models/cityListModel';
@@ -16,13 +17,15 @@ export class RentalAddComponent implements OnInit {
   rentalAddForm:FormGroup
   cities:CityListModel[]=[]
   carId:number
+  rental:RentalListModel
 
   constructor(
     private rentalService:RentalService,
     private activatedRoute:ActivatedRoute,
     private formBuilder:FormBuilder,
     private toastrService:ToastrService,
-    private cityService:CityService
+    private cityService:CityService,
+    private router:Router
     ) { }
 
   ngOnInit() {
@@ -65,16 +68,25 @@ export class RentalAddComponent implements OnInit {
 
     if(this.rentalAddForm.valid){
       let rentalModel = Object.assign({},this.rentalAddForm.value)
-      console.log(this.rentalAddForm.value)
-      this.rentalService.addindividualcustomer(rentalModel).subscribe(response => {
+      this.rentalService.addIndividualCustomer(rentalModel).subscribe(response => {
         
         if(response.success){
+          this.rental = response.data
           this.toastrService.success(response.message,"Success !")
+          this.nextPage()
         }
         else{
           this.toastrService.error(response.message,"Error !")
         }
       })
+    }
+  }
+
+  nextPage() {
+    if (this.rental) {
+      console.log(this.rental.id)
+      this.router.navigate(['additionalServiceItem/'+this.rental.id]);
+      return;  
     }
   }
 

@@ -1,18 +1,25 @@
-<h2 style="margin-top: 15px; margin-left: 15 px;">Renk Ekleme</h2>
-<br>
-<form [formGroup]="colorAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
-    <div style="scroll-margin-top: 15px;">
-        <span class="p-float-label">
-            <input id="float-input" type="text" pInputText formControlName="name"> 
-            <label for="float-input">Renk Giriniz</label>
-        </span>
-    </div>
+<h2 style="margin-bottom: 15px; text-align: center;">Renkler</h2>
+<div class = "card-footer">
+    <div style="margin-block: 8px;">
+        <p-listbox (click)="getColorId(selectedColor!)" [options]="colors" [(ngModel)]="selectedColor" optionLabel="name" ></p-listbox>
+
     <br>
-    <div style="scroll-margin-top: 15px;">
-        <span class="p-buttonset">
-            <button pButton pRipple label="Save" icon="pi pi-check"></button>
-            <button pButton pRipple label="Delete" icon="pi pi-trash"></button>
-            <button pButton pRipple label="Cancel" icon="pi pi-times"></button>
-        </span>
+    <form [formGroup]="colorAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
+        <div style="scroll-margin-top: 15px;">
+            <span class="p-float-label">
+                <input id="float-input" type="text" pInputText formControlName="name"> 
+                <label for="float-input">{{selectedColor?.name}}</label>
+            </span>
+        </div>
+        <br>
+        <div style="scroll-margin-top: 15px;">
+            <span class="p-buttonset">
+                <button pButton pRipple label="Save" icon="pi pi-check"></button>
+                <app-color-delete [selectedColor]="selectedColor"></app-color-delete>
+                <app-color-update [selectedColor]="selectedColor"></app-color-update>
+            </span>
+        </div>
+    </form>
     </div>
-</form>
+</div>
+

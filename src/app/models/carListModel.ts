@@ -10,5 +10,6 @@ export interface CarListModel{
     brandName:string
     colorName:string
     fuelTypeName:string
+    segmentName:string
     imageUrl:string
 }

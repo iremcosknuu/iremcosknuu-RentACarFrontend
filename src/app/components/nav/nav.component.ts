@@ -13,7 +13,20 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+    this.items = [
+      {
+          label: 'Yönetim Paneli',
+          items: [
+              {label: 'Araçlar',routerLink:"car-carAdd"},
+              {label: 'Markalar',routerLink:"car-brandAdd"},
+              {label: 'Renkler',routerLink:"car-colorAdd"},
+              {label: 'Yakıt Tipi',routerLink:"car-fuelTypeAdd"},
+              {label: 'Şehirler',routerLink:"car-cityAdd"},
+              {label:'Ek Servisler',routerLink:"car-additionalServiceItemAdd"}
+          ]
+      }
+  ];
+}
   
 
 }

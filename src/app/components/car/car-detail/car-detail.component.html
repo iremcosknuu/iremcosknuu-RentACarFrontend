@@ -2,31 +2,44 @@
   <ng-template pTemplate="header">
       <img alt="Card" src="{{car?.imageUrl}}">
   </ng-template>
-  <!-- <p-table>
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body">
-        <tr>
-            <td>{{car?.modelYear}}</td>
-            <td>{{car?.modelYear}}</td>
-            <td>{{car?.modelYear}}</td>
-            <td>{{car?.modelYear}}</td>
-        </tr>
-    </ng-template>
-</p-table> -->
-  <p>{{car?.modelYear}}</p>
-  <p>{{car?.description}}</p>
-  <p>{{car?.fuelTypeName}}</p>
-  <p>{{car?.colorName}}</p>
-  <p>{{car?.findexScore}}</p>
-  <p>{{car?.kilometer}}</p>
-  <p>{{car?.minAge}}</p> 
+   <table class="table">
+        <thead>
+            <tr>
+                <td scope="col">Özellikler</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Model YIlı</td>
+                <td>{{car?.modelYear}}</td>
+            </tr>
+            <tr>
+                <td>Açıklama</td>
+                <td>{{car?.description}}</td>
+            </tr>
+            <tr>
+                <td>Yakıt Tipi</td>
+                <td>{{car?.fuelTypeName}}</td>
+            </tr>
+            <tr>
+                <td>Segment</td>
+                <td>{{car?.segmentName}}</td>
+            </tr>
+            <tr>
+                <td>Findex Score</td>
+                <td>{{car?.findexScore}}</td>
+            </tr>
+            <tr>
+                <td>Kilometre</td>
+                <td>{{car?.kilometer}}</td>
+            </tr>
+            <tr>
+                <td>Minimum Yaş</td>
+                <td>{{car?.minAge}}</td>
+            </tr>
+        </tbody>
+    </table> 
+
   <ng-template pTemplate="footer">
       <p-button label="Kirala" icon="pi pi-check" routerLink="rental-rentalAdd"></p-button>
       <p-button label="Geri Dön" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}" routerLink=""></p-button>

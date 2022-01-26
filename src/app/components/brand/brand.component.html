@@ -2,4 +2,3 @@
 <div style="margin-block: 8px;">
     <p-listbox (click)="getBrandId(selectedBrand!)" [options]="brands" [(ngModel)]="selectedBrand" optionLabel="name" routerLink="car-brandId/{{selectedBrand?.id}}"></p-listbox>
 </div>
-<p-button label="Ekle" routerLink="car-brandAdd"></p-button>

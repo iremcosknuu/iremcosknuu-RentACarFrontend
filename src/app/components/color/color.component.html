@@ -2,4 +2,3 @@
 <div style="margin-block: 8px;">
     <p-listbox (click)="getColorId(selectedColor!)" [options]="colors" [(ngModel)]="selectedColor" optionLabel="name" routerLink="car-colorId/{{selectedColor?.id}}"></p-listbox>
 </div>
-<p-button label="Ekle" routerLink="car-colorAdd"></p-button>

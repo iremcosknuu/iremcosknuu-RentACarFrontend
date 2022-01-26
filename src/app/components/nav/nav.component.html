@@ -1,3 +1,6 @@
-<p-menubar >
+<p-menubar [model]="items" >
+  <ng-template pTemplate="start">
+    <img src="\assets\favicon.png" height="80" class="mr-2" routerLink="">
+</ng-template>
   <button pButton label="Logout" icon="pi pi-power-off"></button>
 </p-menubar>

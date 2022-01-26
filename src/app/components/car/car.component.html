@@ -8,12 +8,11 @@
                     <span class="p-input-icon-left mb-2 md:mb-0">
                         <i class="pi pi-search"></i>
                         <input type="search" pInputText placeholder="Search by Name" style="margin-right: 10px;">
-                        <p-button label="Araba Ekle" routerLink="car-carAdd" ></p-button>
                     </span>
                 </div>
             </ng-template>
             <ng-template let-car pTemplate="gridItem">
-                <div class="col-9 md:col-4">
+                <div class="col-9 md:col-4" >
                     <div class="product-grid-item card">
                         <div class="product-grid-item-top">
                             <div>
@@ -31,7 +30,7 @@
                             <p-button icon="pi pi-bars" routerLink="car-detail/{{car.id}}"></p-button>
                         </div>
                     </div>
-                </div>
+                </div> 
             </ng-template>
         </p-dataView>
     </div>

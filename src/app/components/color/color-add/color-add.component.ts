@@ -12,12 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ColorAddComponent implements OnInit {
 
-  color:ColorListModel
+  colors:ColorListModel[]=[]
+  selectedColor:ColorListModel
   colorAddForm:FormGroup
+  dataLoaded:boolean = false
 
-  constructor(private colorService:ColorService,private formBuilder:FormBuilder,private toastrService:ToastrService,private activatedRoute:ActivatedRoute) { }
+  constructor(
+    private colorService:ColorService,
+    private formBuilder:FormBuilder,
+    private toastrService:ToastrService,
+    private activatedRoute:ActivatedRoute
+    ) { }
 
   ngOnInit() {
+    this.getColors()
     this.createColorAddForm() 
   }
 
@@ -38,6 +46,18 @@ export class ColorAddComponent implements OnInit {
         }
       })
     }
+  }
+
+  getColors(){
+    this.colorService.getColors().subscribe(response => {
+      this.dataLoaded = false
+      this.colors = response.data
+      this.dataLoaded = true
+    })
+  }
+
+  getColorId(color:ColorListModel){
+    this.selectedColor = color
   }
 
 }
