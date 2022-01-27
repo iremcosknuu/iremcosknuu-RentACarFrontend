@@ -1,6 +1,6 @@
 <h1>Kiralama</h1>
 <div class="card-footer">
-    <form [formGroup]="rentalAddForm" (submit)="add()" style="width: 25rem;">
+    <form [formGroup]="rentalAddForm" style="width: 25rem;">
         <div class="grid p-fluid">
             <div class="field col-12 md:col-2;" style="margin-bottom: 2rem;">
                 <label for="rentMile">Başlangıç Kilometre</label>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div style="margin-bottom: 2rem;">
-            <p-button label="İleri" icon="pi pi-arrow-right" type="submit" routerLink="additionalServiceItem"></p-button>
+            <p-button label="İleri" icon="pi pi-arrow-right" type="button" (onClick)="add()"></p-button>
             <p-button label="Geri Dön" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}" routerLink=""></p-button>
         </div>   
 </form>

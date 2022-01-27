@@ -13,6 +13,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BrandUpdateComponent implements OnInit {
 
   @Input() selectedBrand:BrandListModel
+  @Input () updatedName:string
   brandUpdateForm:FormGroup
 
   constructor(
@@ -22,20 +23,21 @@ export class BrandUpdateComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.updateBrandForm()
+  //  this.updateBrandForm()
   }
-
+/*
   updateBrandForm(){
     this.brandUpdateForm = this.formBuilder.group({
         id:[this.selectedBrand.id , Validators.required],
         name:[this.selectedBrand.name , Validators.required]
     })
+    console.log(this.selectedBrand);
   }
-
-  update(){
-    if(this.brandUpdateForm.valid){
-      console.log(this.updateBrandForm())
-      let brandUpdateModel = Object.assign({},this.brandUpdateForm.value)
+*/
+  update(selectedBrand: BrandListModel){ 
+    console.log(selectedBrand);
+      let brandUpdateModel = {id:this.selectedBrand.id, name:this.updatedName}
+      
       this.brandService.update(brandUpdateModel).subscribe(response => {
         if(response.success){
           this.toastrService.success(response.message, "Successful !")
@@ -44,7 +46,7 @@ export class BrandUpdateComponent implements OnInit {
           this.toastrService.error(response.message, "Error !")
         }
       })
-    }
+   
   }
 
 }

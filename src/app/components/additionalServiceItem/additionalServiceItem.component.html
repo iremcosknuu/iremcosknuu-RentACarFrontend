@@ -10,11 +10,16 @@
         <ng-template pTemplate="body" let-additionalServiseItem>
             <tr style="height: 2rem;">
                 <td>
-                    <p-toggleButton onIcon="pi pi-check" offIcon="pi pi-times"></p-toggleButton>
+                    <p-toggleButton *ngIf="!isBasketContainItem(additionalServiseItem.id)" (click)="addAdditionalServiceItem(additionalServiseItem.id)" onIcon="pi pi-check" offIcon="pi pi-times"></p-toggleButton>
                 </td>
                 <td>{{additionalServiseItem.name}}</td>
                 <td>{{additionalServiseItem.price}} TL</td>             
             </tr>
         </ng-template>
-      </p-table>      
+      </p-table> 
+      <div style="margin: 1rem;">
+        <p-button label="İleri" icon="pi pi-arrow-right" type="button" (onClick)="add()"></p-button>
+        <p-button label="Geri Dön" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}" routerLink=""></p-button>
+    </div>
+
 </div>

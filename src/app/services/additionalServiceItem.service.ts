@@ -1,11 +1,11 @@
 import { ResponseModel } from './../models/responseModel';
-import { CreateAdditionalServiceModel } from './../models/createAdditionalServiceItemModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AdditionalServiceItemListModel } from '../models/additionalServiceItemListModel';
 import { ListResponseModel } from '../models/listResponseModel';
 import { UpdateAdditionalServiceItemModel } from '../models/updateAdditionalServiceItemModel';
+import { CreateAdditionalServiceModel } from '../models/createAdditionalServiceModel';
 
 @Injectable({
   providedIn: 'root'

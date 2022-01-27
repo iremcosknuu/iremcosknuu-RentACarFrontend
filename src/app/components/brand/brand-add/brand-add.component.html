@@ -4,7 +4,7 @@
         <p-listbox (click)="getBrandId(selectedBrand!)" [options]="brands" [(ngModel)]="selectedBrand" optionLabel="name"></p-listbox>
     
     <br>
-    <form [formGroup]="brandAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
+    <form [formGroup]="brandAddForm" style="scroll-margin-top: 10px;">
         <div style="scroll-margin-top: 15px;">
             <span class="p-float-label">
                 <input id="float-input" type="text" placeholder="{{selectedBrand?.name}}" pInputText formControlName="name" > 
@@ -13,9 +13,9 @@
         <br>
         <div style="scroll-margin-top: 15px;">
             <span class="p-buttonset">
-                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check"></button>
+                <button pButton pRipple type="submit" label="Kaydet" (onClick)="add()" icon="pi pi-check"></button>
                 <app-brand-delete [selectedBrand]="selectedBrand"></app-brand-delete>
-                <app-brand-update [selectedBrand]="selectedBrand"></app-brand-update>
+                <app-brand-update [selectedBrand]="selectedBrand" [updatedName]="brandAddForm.get('name').value"></app-brand-update>
             </span>
         </div>
     </form>   

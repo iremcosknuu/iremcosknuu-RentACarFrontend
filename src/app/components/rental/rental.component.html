@@ -1,21 +1,21 @@
 <p-tabMenu [model]="items"></p-tabMenu>
 <div class="card">
-  <p-virtualScroller [value]="rentals" scrollHeight="450px" [itemSize]="100" [rows]="100" [lazy]="true">
+  <p-virtualScroller [value]="rentals" scrollHeight="930px" [itemSize]="100" [rows]="100" [lazy]="true">
       <ng-template pTemplate="header">
-          List of Products
+          Kiralanalar
       </ng-template>
       <ng-template let-rental pTemplate="item" let-i="index">
           <div class="product-item">
               <div class="image-container">
-                  <img src="{{rental.carImageUrl}}" [alt]="rental.pickUpCityName" class="product-image" />
+                  <img width="100px" height="67px" src="{{rental.carImageUrl}}" [alt]="rental.pickUpCityName" class="product-image" />
               </div>
               <div class="product-list-detail">
-                  <h5 class="mb-2">{{rental.pickUpCityName}}</h5>
-                  <i class="pi pi-tag product-category-icon"></i>
+                  <h5 class="mb-2">{{rental.brandName}}</h5>
+                  <i class="pi pi-map product-category-icon"></i>
                   <span class="product-category">{{rental.pickUpCityName}}</span>
               </div>
               <div class="product-list-action">
-                  <h6 class="mb-2">{{rental.pickUpCityName}} TL</h6>
+                  <h6 class="mb-2">{{rental.dailyPrice}} TL</h6>
               </div>
           </div>
       </ng-template>

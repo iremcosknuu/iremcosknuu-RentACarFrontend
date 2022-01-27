@@ -27,4 +27,8 @@ addCorporateCustomer(rental : CreateRentalModel):Observable<SingleResponseModel<
   return this.httClient.post<SingleResponseModel<RentalListModel>>(this.apiUrl + "addcorporatecustomer",rental)
 }
 
+getById(id:number):Observable<SingleResponseModel<RentalListModel>>{
+  return this.httClient.get<SingleResponseModel<RentalListModel>>(this.apiUrl+"findById/"+id)
+}
+
 }

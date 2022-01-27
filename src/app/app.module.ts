@@ -26,6 +26,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {StepsModule} from 'primeng/steps';
+import {InputMaskModule} from 'primeng/inputmask';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -54,6 +55,8 @@ import { AdditionalServiceItemDeleteComponent } from './components/additionalSer
 import { AdditionalServiceItemAddComponent } from './components/additionalServiceItem/additionalServiceItem-add/additionalServiceItem-add.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { RentalAddComponent } from './components/rental/rental-add/rental-add.component';
+import { RentStepComponent } from './components/rental/rent-step/rent-step.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -81,10 +84,12 @@ import { RentalAddComponent } from './components/rental/rental-add/rental-add.co
     CarAddComponent,
     RentalComponent,
     RentalAddComponent,
+    RentStepComponent,
     AdditionalServiceComponent,
     AdditionalServiceItemComponent,
     AdditionalServiceItemAddComponent,
-    AdditionalServiceItemDeleteComponent
+    AdditionalServiceItemDeleteComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -113,6 +118,7 @@ import { RentalAddComponent } from './components/rental/rental-add/rental-add.co
     CalendarModule,
     ToggleButtonModule,
     StepsModule,
+    InputMaskModule,
     ToastrModule.forRoot({
       positionClass:"toast-top-right"
     })

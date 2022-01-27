@@ -83,8 +83,9 @@ export class RentalAddComponent implements OnInit {
   }
 
   nextPage() {
+    console.log(this.rental)
+
     if (this.rental) {
-      console.log(this.rental.id)
       this.router.navigate(['additionalServiceItem/'+this.rental.id]);
       return;  
     }

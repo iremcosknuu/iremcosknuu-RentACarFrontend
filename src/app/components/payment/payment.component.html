@@ -1,0 +1,31 @@
+<div style="margin-bottom: 2rem; margin-top: 15px; margin-left: 40px;">
+  <h1 style="text-align: center;">Araç Bilgileri</h1>
+</div>
+<div class="card-footer">
+
+  <form style="margin-top: 15px; margin-left: 40px;" [formGroup]="paymentForm" (submit)="add()">
+
+    <div class="field col-12 md:col-4" style="margin-bottom: 2rem;" class="form-group">
+      <label for="name">Kart Numarası</label>
+      <br>
+      <p-inputMask mask="9999-9999-9999-9999" formControlName="cardNo"></p-inputMask>
+    </div>
+
+    <div class="field col-12 md:col-4" style="margin-bottom: 2rem;" class="form-group">
+      <label for="name">Son Kullanım Tarihi</label>
+      <br>
+      <p-inputMask mask="99-99" formControlName="expirationDate"></p-inputMask>
+    </div>
+
+    <div class="field col-12 md:col-4" style="margin-bottom: 2rem;" class="form-group">
+      <label for="name">CVV</label>
+      <br>
+      <p-inputMask mask="999" formControlName="cVV"></p-inputMask>
+    </div>
+
+    <div style="margin-bottom: 2rem;" class="form-group" (onClick)="add()">
+      <button pButton pRipple type="submit" label="Tamamla" icon="pi pi-check"></button>
+      <p-button label="Geri Dön" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}" routerLink=""></p-button>
+    </div> 
+</form>
+</div>

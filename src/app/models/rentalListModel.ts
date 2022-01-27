@@ -10,6 +10,8 @@ export interface RentalListModel{
 	returnCityName:string
     customerId:number
     carId:number
+    brandName:String
+    dailyPrice:String
     promotionId:number
     carImageUrl:string
 }

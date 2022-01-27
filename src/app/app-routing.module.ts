@@ -1,3 +1,4 @@
+import { PaymentComponent } from './components/payment/payment.component';
 import { AdditionalServiceItemAddComponent } from './components/additionalServiceItem/additionalServiceItem-add/additionalServiceItem-add.component';
 import { CityAddComponent } from './components/city/city-add/city-add.component';
 import { FuelTypeAddComponent } from './components/fuelType/fuelType-add/fuelType-add.component'; 
@@ -11,6 +12,7 @@ import { BrandAddComponent } from './components/brand/brand-add/brand-add.compon
 import { RentalComponent } from './components/rental/rental.component';
 import { RentalAddComponent } from './components/rental/rental-add/rental-add.component';
 import { AdditionalServiceItemComponent } from './components/additionalServiceItem/additionalServiceItem.component';
+import { RentStepComponent } from './components/rental/rent-step/rent-step.component';
 
 const routes: Routes = [
   {path:'',redirectTo: '',pathMatch:'full', component: CarComponent},
@@ -25,8 +27,8 @@ const routes: Routes = [
   {path: 'car-cityAdd',component:CityAddComponent},
   {path: 'rentals',component:RentalComponent},
   {path: 'car-detail/:carId/rental-rentalAdd',component:RentalAddComponent},
-  {path: 'car-detail/:carId/rental-rentalAdd/additionalServiceItem', component:AdditionalServiceItemComponent},
-  {path: 'car-additionalServiceItemAdd',component:AdditionalServiceItemAddComponent}
+  {path: 'additionalServiceItem/:rentId', component:AdditionalServiceItemComponent},
+  {path: 'payment/:rentId',component:PaymentComponent}
 ]
 
 @NgModule({

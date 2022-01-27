@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-rental',
   templateUrl: './rental.component.html',
-  styleUrls: ['./rental.component.css']
+  styleUrls: ['./rental.component.scss']
 })
 export class RentalComponent implements OnInit {
 
@@ -33,6 +33,6 @@ export class RentalComponent implements OnInit {
       this.dataLoaded = true
       console.log(response.data)
     })
-    
   }
+
 }
