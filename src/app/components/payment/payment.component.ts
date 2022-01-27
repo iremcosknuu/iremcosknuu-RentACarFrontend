@@ -67,7 +67,7 @@ export class PaymentComponent implements OnInit {
   }
 
   nextPage() {
-    this.router.navigate(['additionalServiceItem/'+this.payment.id]);
+    this.router.navigate(['invoice/'+this.payment.id]);
   }
 
 }

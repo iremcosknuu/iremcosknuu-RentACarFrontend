@@ -1,20 +1,21 @@
-<div style="margin-top: 2rem;">
-  <p-table [value]="payment" responsiveLayout="scroll">
-      <ng-template pTemplate="header">
-          <tr>
-              <th>Ek Servisler</th>
-              <th>Ücret</th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-additionalServiseItem>
-          <tr style="height: 2rem;">
-              <td>{{additionalServiseItem.name}}</td>
-              <td>{{additionalServiseItem.price}} TL</td>             
-          </tr>
-      </ng-template>
-    </p-table> 
-    <div style="margin: 1rem;">
-      <p-button label="Tamamla" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}" routerLink=""></p-button>
-  </div>
-
-</div>
+<p-table #dt [columns]="columns" selectionMode="multiple" responsiveLayout="scroll">
+    <ng-template pTemplate="caption">
+        <div class="flex">
+            <h5 class="m-0">Fatura</h5>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

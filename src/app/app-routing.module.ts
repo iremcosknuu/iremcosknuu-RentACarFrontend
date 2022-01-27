@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'additionalServiceItem/:rentId', component:AdditionalServiceItemComponent},
   {path: 'car-additionalServiceItemAdd', component:AdditionalServiceItemAddComponent},
   {path: 'payment/:rentId',component:PaymentComponent},
-  {path: 'payment/:paymentId',component:InvoiceComponent}
+  {path: 'invoice/:paymentId',component:InvoiceComponent}
 ]
 
 @NgModule({

@@ -3,5 +3,5 @@ export interface PaymentListModel {
 	dailyPrice:number
 	additionalServicePrice:number
 	totalAmount:number
-	rentalId:number
+	rental_id:number
 }
