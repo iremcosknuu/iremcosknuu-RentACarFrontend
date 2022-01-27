@@ -48,7 +48,7 @@ export class PaymentComponent implements OnInit {
       let paymentModel = Object.assign({},this.paymentAddForm.value)
       this.paymentService.add(paymentModel).subscribe(response => {
         if (response.success) {
-          
+          this.payment = response.data
           this.toastrService.success(response.message,"Success !")
           this.nextPage()
         }
