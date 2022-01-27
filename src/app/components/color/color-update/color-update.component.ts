@@ -12,7 +12,7 @@ import { ColorListModel } from 'src/app/models/colorListModel';
 export class ColorUpdateComponent implements OnInit {
 
   @Input() selectedColor:ColorListModel
-  colorUpdateForm:FormGroup
+  @Input() updatedName:string
 
   constructor(
     private colorService:ColorService,
@@ -23,17 +23,10 @@ export class ColorUpdateComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateColorForm(){
-    this.colorUpdateForm = this.formBuilder.group({
-        id:[this.selectedColor.id , Validators.required],
-        name:[this.selectedColor.name , Validators.required]
-    })
-  }
 
-  update(){
-    if(this.colorUpdateForm.valid){
-      console.log(this.updateColorForm())
-      let brandUpdateModel = Object.assign({},this.colorUpdateForm.value)
+  update(selectedColor:ColorListModel){
+
+      let brandUpdateModel = {id:this.selectedColor.id, name:this.updatedName}
       this.colorService.update(brandUpdateModel).subscribe(response => {
         if(response.success){
           this.toastrService.success(response.message, "Successful !")
@@ -43,6 +36,6 @@ export class ColorUpdateComponent implements OnInit {
         }
       })
     }
-  }
+  
 
 }

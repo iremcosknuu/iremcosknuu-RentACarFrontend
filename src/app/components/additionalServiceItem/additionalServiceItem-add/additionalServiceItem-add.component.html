@@ -4,7 +4,7 @@
         <p-listbox (click)="getadditionalServiceItemId(selectedAdditionalServiceItem!)" [options]="additionalServiceItems" [(ngModel)]="selectedAdditionalServiceItem" optionLabel="name"></p-listbox>
     
     <br>
-    <form [formGroup]="additionalServiceItemAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
+    <form [formGroup]="additionalServiceItemAddForm" style="scroll-margin-top: 10px;">
         <div style="scroll-margin-top: 15px;">
             <span class="p-float-label">
                 <input id="float-input" type="text" placeholder="{{selectedAdditionalServiceItem?.name}}" pInputText formControlName="name" > 
@@ -13,7 +13,7 @@
         <br>
         <div style="scroll-margin-top: 15px;">
             <span class="p-buttonset">
-                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check"></button>
+                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check" (click)="add()" ></button>
                 <app-additionalServiceItem-delete [selectedAdditionalServiceItem]="selectedAdditionalServiceItem"></app-additionalServiceItem-delete>
             </span>
         </div>

@@ -1,3 +1,5 @@
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { AdditionalServiceItemUpdateComponent } from './components/additionalServiceItem/additionalServiceItem-update/additionalServiceItem-update.component';
 import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
@@ -89,7 +91,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     AdditionalServiceItemComponent,
     AdditionalServiceItemAddComponent,
     AdditionalServiceItemDeleteComponent,
-    PaymentComponent
+    AdditionalServiceItemUpdateComponent,
+    PaymentComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,

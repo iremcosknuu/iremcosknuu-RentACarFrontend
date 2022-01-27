@@ -1,5 +1,5 @@
 export interface CreatePaymentModel {
-	paymentTime:Date
+	paymentDate:Date
 	rentalId:number
 	cardNo:string
     expirationDate:string

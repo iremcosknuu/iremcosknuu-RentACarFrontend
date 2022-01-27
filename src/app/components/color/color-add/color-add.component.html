@@ -4,19 +4,18 @@
         <p-listbox (click)="getColorId(selectedColor!)" [options]="colors" [(ngModel)]="selectedColor" optionLabel="name" ></p-listbox>
 
     <br>
-    <form [formGroup]="colorAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
+    <form [formGroup]="colorAddForm"  style="scroll-margin-top: 10px;">
         <div style="scroll-margin-top: 15px;">
             <span class="p-float-label">
-                <input id="float-input" type="text" pInputText formControlName="name"> 
-                <label for="float-input">{{selectedColor?.name}}</label>
+                <input id="float-input" type="text" placeholder="{{selectedColor?.name}}" pInputText formControlName="name"> 
             </span>
         </div>
         <br>
         <div style="scroll-margin-top: 15px;">
             <span class="p-buttonset">
-                <button pButton pRipple label="Save" icon="pi pi-check"></button>
+                <button pButton pRipple label="Kaydet" icon="pi pi-check" (click)="add()"></button>
                 <app-color-delete [selectedColor]="selectedColor"></app-color-delete>
-                <app-color-update [selectedColor]="selectedColor"></app-color-update>
+                <app-color-update [selectedColor]="selectedColor" [updatedName]="colorAddForm.get('name').value"></app-color-update>
             </span>
         </div>
     </form>

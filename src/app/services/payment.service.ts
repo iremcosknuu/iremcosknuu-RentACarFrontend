@@ -1,3 +1,4 @@
+import { SingleResponseModel } from './../models/singleResponseModel';
 import { ResponseModel } from './../models/responseModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -13,8 +14,8 @@ export class PaymentService {
 
 constructor(private httpClient:HttpClient) { }
 
-add(payment:CreatePaymentModel):Observable<ResponseModel>{
-  return this.httpClient.post<ResponseModel>(this.apiUrl+"add",payment)
+add(payment:CreatePaymentModel):Observable<SingleResponseModel<ResponseModel>>{
+  return this.httpClient.post<SingleResponseModel<ResponseModel>>(this.apiUrl+"add",payment)
 }
 
 }

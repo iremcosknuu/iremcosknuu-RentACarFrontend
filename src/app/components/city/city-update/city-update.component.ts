@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CityUpdateComponent implements OnInit {
 
   @Input() selectedCity:CityListModel
-  cityUpdateForm:FormGroup
+  @Input() updatedName:string
 
   constructor(
     private cityService:CityService,
@@ -23,17 +23,8 @@ export class CityUpdateComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateBrandForm(){
-    this.cityUpdateForm = this.formBuilder.group({
-        id:[this.selectedCity.id , Validators.required],
-        name:[this.selectedCity.name , Validators.required]
-    })
-  }
-
-  update(){
-    if(this.cityUpdateForm.valid){
-      console.log(this.updateBrandForm())
-      let brandUpdateModel = Object.assign({},this.cityUpdateForm.value)
+  update(selectedCity:CityListModel){
+      let brandUpdateModel = {id:this.selectedCity.id, name:this.updatedName}
       this.cityService.update(brandUpdateModel).subscribe(response => {
         if(response.success){
           this.toastrService.success(response.message, "Successful !")
@@ -42,7 +33,7 @@ export class CityUpdateComponent implements OnInit {
           this.toastrService.error(response.message, "Error !")
         }
       })
-    }
+    
   }
 
 

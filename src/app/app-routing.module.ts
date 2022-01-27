@@ -1,3 +1,5 @@
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { AdditionalServiceComponent } from './components/additionalService/additionalService.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { AdditionalServiceItemAddComponent } from './components/additionalServiceItem/additionalServiceItem-add/additionalServiceItem-add.component';
 import { CityAddComponent } from './components/city/city-add/city-add.component';
@@ -28,7 +30,9 @@ const routes: Routes = [
   {path: 'rentals',component:RentalComponent},
   {path: 'car-detail/:carId/rental-rentalAdd',component:RentalAddComponent},
   {path: 'additionalServiceItem/:rentId', component:AdditionalServiceItemComponent},
-  {path: 'payment/:rentId',component:PaymentComponent}
+  {path: 'car-additionalServiceItemAdd', component:AdditionalServiceItemAddComponent},
+  {path: 'payment/:rentId',component:PaymentComponent},
+  {path: 'payment/:paymentId',component:InvoiceComponent}
 ]
 
 @NgModule({

@@ -12,7 +12,7 @@ import { FuelTypeListModel } from 'src/app/models/fuelTyepListModel';
 export class FuelTypeUpdateComponent implements OnInit {
 
   @Input() selectedFuelType:FuelTypeListModel
-  fuelTypeUpdateForm:FormGroup
+  @Input() updatedName:string
 
   constructor(
     private fuelTypeService:FuelTypeService,
@@ -21,20 +21,13 @@ export class FuelTypeUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.updateFuelTypeForm()
+    
   }
 
-  updateFuelTypeForm(){
-    this.fuelTypeUpdateForm = this.formBuilder.group({
-      id:[this.selectedFuelType.id, Validators.required],
-      name:[this.selectedFuelType.name, Validators.required]
-    })
-  }
 
-  update(){
-    if(this.fuelTypeUpdateForm.valid){
-      console.log(this.updateFuelTypeForm())
-      let fuelTypeUpdateModel = Object.assign({},this.fuelTypeUpdateForm.value)
+  update(selectedFuelType:FuelTypeListModel){
+    
+      let fuelTypeUpdateModel = {id:this.selectedFuelType.id, name:this.updatedName}
       this.fuelTypeService.update(fuelTypeUpdateModel).subscribe(response => {
         if(response.success){
           this.toastrService.success(response.message, "Successful !")
@@ -43,8 +36,6 @@ export class FuelTypeUpdateComponent implements OnInit {
           this.toastrService.error(response.message, "Error !")
         }
       })
-    }
-
   }
 
 }

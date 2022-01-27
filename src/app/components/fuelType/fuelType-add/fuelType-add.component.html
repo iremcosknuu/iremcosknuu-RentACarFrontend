@@ -3,7 +3,7 @@
   <div style="margin-block: 8px;">
     <p-listbox (click)="getFuelTypeId(selectedFuelType!)" [options]="fuelTypes" [(ngModel)]="selectedFuelType" optionLabel="name"></p-listbox>
     <br>
-    <form [formGroup]="fuelTypeAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
+    <form [formGroup]="fuelTypeAddForm" style="scroll-margin-top: 10px;">
         <div style="scroll-margin-top: 15px;">
             <span class="p-float-label">
                 <input id="float-input" type="text" placeholder="{{selectedFuelType?.name}}" pInputText formControlName="name" > 
@@ -12,9 +12,9 @@
         <br>
         <div style="scroll-margin-top: 15px;">
             <span class="p-buttonset">
-                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check"></button>
+                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check" (click)="add()"></button>
                 <app-fuelType-delete [selectedFuelType]="selectedFuelType"></app-fuelType-delete>
-                <app-fuelType-update [selectedFuelType]="selectedFuelType"></app-fuelType-update>
+                <app-fuelType-update [selectedFuelType]="selectedFuelType" [updatedName]="fuelTypeAddForm.get('name').value"></app-fuelType-update>
             </span>
         </div>
     </form>     

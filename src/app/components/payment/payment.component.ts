@@ -1,10 +1,10 @@
 import { RentalListModel } from './../../models/rentalListModel';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PaymentService } from './../../services/payment.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { RentalService } from 'src/app/services/rental.service';
+import { PaymentListModel } from 'src/app/models/paymentListModel';
 
 @Component({
   selector: 'app-payment',
@@ -13,25 +13,28 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class PaymentComponent implements OnInit {
 
-  paymentForm:FormGroup
+  paymentAddForm:FormGroup
   rentId:number
   rentals:RentalListModel[]=[]
   rental:RentalListModel
+  payment:PaymentListModel
 
   constructor(
     private formBuilder:FormBuilder,
     private paymentService:PaymentService,
     private toastrService:ToastrService,
     private activatedRoute:ActivatedRoute,
-    private rentalService:RentalService
+    private router:Router
   ) { }
 
   ngOnInit() {
+    this.getRouteRentId();
+    this.createPaymentAddForm()
   }
 
   createPaymentAddForm(){
-    this.paymentForm = this.formBuilder.group({
-      paymentTime:[Date.now(),Validators.required],
+    this.paymentAddForm = this.formBuilder.group({
+      //paymentDate:["",Validators.required],
       rentalId:[this.rentId,Validators.required],
       cardNo:["",Validators.required],
       expirationDate:["",Validators.required],
@@ -40,14 +43,14 @@ export class PaymentComponent implements OnInit {
   }
 
   add(){
-
-    if(this.paymentForm.valid){
+    if(this.paymentAddForm.valid){
       
-      let paymentModel = Object.assign({},this.paymentForm.value)
+      let paymentModel = Object.assign({},this.paymentAddForm.value)
       this.paymentService.add(paymentModel).subscribe(response => {
         if (response.success) {
-          console.log("Başarılı")
-          this.toastrService.success(response.message, "Successful !")
+          
+          this.toastrService.success(response.message,"Success !")
+          this.nextPage()
         }
         else{
           this.toastrService.error(response.message, "Error !")
@@ -63,5 +66,8 @@ export class PaymentComponent implements OnInit {
     })
   }
 
+  nextPage() {
+    this.router.navigate(['additionalServiceItem/'+this.payment.id]);
+  }
 
 }

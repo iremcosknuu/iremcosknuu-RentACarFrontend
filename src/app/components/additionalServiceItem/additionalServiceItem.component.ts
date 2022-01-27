@@ -76,6 +76,13 @@ export class AdditionalServiceItemComponent implements OnInit {
     
   }
 
+  removeAdditionalServiceItem(id: number) {
+    this.additionalServiceItemBasket = this.additionalServiceItemBasket.filter(
+      (model) => model.additionalServiceItemId !== id
+    );
+    this.toastrService.error('Çıkarıldı', 'Başarılı');
+  }
+
   getRouteRentalId(){
     this.activatedRoute.params.subscribe(params => {
       

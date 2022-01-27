@@ -14,7 +14,6 @@ export class BrandUpdateComponent implements OnInit {
 
   @Input() selectedBrand:BrandListModel
   @Input () updatedName:string
-  brandUpdateForm:FormGroup
 
   constructor(
     private brandService:BrandService,
@@ -23,17 +22,8 @@ export class BrandUpdateComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-  //  this.updateBrandForm()
   }
-/*
-  updateBrandForm(){
-    this.brandUpdateForm = this.formBuilder.group({
-        id:[this.selectedBrand.id , Validators.required],
-        name:[this.selectedBrand.name , Validators.required]
-    })
-    console.log(this.selectedBrand);
-  }
-*/
+
   update(selectedBrand: BrandListModel){ 
     console.log(selectedBrand);
       let brandUpdateModel = {id:this.selectedBrand.id, name:this.updatedName}

@@ -4,7 +4,7 @@
         <p-listbox (click)="getCityId(selectedCity!)" [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-listbox>
     
     <br>
-    <form [formGroup]="cityAddForm" (submit)="add()" style="scroll-margin-top: 10px;">
+    <form [formGroup]="cityAddForm" style="scroll-margin-top: 10px;">
         <div style="scroll-margin-top: 15px;">
             <span class="p-float-label">
                 <input id="float-input" type="text" placeholder="{{selectedCity?.name}}" pInputText formControlName="name" > 
@@ -13,9 +13,9 @@
         <br>
         <div style="scroll-margin-top: 15px;">
             <span class="p-buttonset">
-                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check"></button>
+                <button pButton pRipple type="submit" label="Kaydet" icon="pi pi-check" (click)="add()" ></button>
                 <app-city-delete [selectedCity]="selectedCity"></app-city-delete>
-                <app-city-update [selectedCity]="selectedCity"></app-city-update>  
+                <app-city-update [selectedCity]="selectedCity" [updatedName]="cityAddForm.get('name').value"></app-city-update>  
             </span>
         </div>
     </form>   
